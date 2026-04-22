@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal Bin Basha — AI Platform & DevOps Engineer</title>
+  <meta name="description" content="Faisal Bin Basha — Principal-level AI Platform, Site Reliability, DevOps and DevSecOps Engineer. Kubernetes, AWS, Azure, Oracle Cloud, ELK, CI/CD and more. Based in Sharjah, UAE." />
+  <meta name="author" content="Faisal Bin Basha" />
+  <meta property="og:title" content="Faisal Bin Basha — AI Platform & DevOps Engineer" />
+  <meta property="og:description" content="Principal-level DevOps and AI Infrastructure Engineer. Kubernetes, cloud, observability, DevSecOps." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root { --radius: 14px; --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1); --container: 1200px; }
+
+    [data-theme="dark"] {
+      --bg: #0e0e10; --bg-soft: #151518; --bg-elevated: #1c1c21;
+      --text: #ededed; --text-muted: #9a9aa3; --border: #26262b;
+      --accent: #e8b75a; --accent-soft: rgba(232, 183, 90, 0.12); --accent-contrast: #0e0e10;
+      --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6); --noise-opacity: 0.04;
+    }
+    [data-theme="light"] {
+      --bg: #f6f3ee; --bg-soft: #efeae1; --bg-elevated: #ffffff;
+      --text: #1a1a1a; --text-muted: #6b6b6b; --border: #dcd6c9;
+      --accent: #c64a1f; --accent-soft: rgba(198, 74, 31, 0.10); --accent-contrast: #f6f3ee;
+      --shadow: 0 20px 60px -25px rgba(26, 26, 26, 0.25); --noise-opacity: 0.05;
+    }
+    [data-theme="sepia"] {
+      --bg: #1a1410; --bg-soft: #231a14; --bg-elevated: #2a1f17;
+      --text: #f2e4d0; --text-muted: #b59a7c; --border: #3a2c21;
+      --accent: #7fb069; --accent-soft: rgba(127, 176, 105, 0.15); --accent-contrast: #1a1410;
+      --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.7); --noise-opacity: 0.06;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      opacity: var(--noise-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+    h1, h2, h3, h4 {
+      font-family: "Fraunces", Georgia, serif; font-weight: 400;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      letter-spacing: -0.02em; line-height: 1.1; margin: 0;
+    }
+    p { margin: 0 0 1rem; color: var(--text-muted); }
+    a { color: var(--text); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+    section { padding: 100px 0; position: relative; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em;
+      color: var(--accent); margin-bottom: 24px; font-weight: 500;
+    }
+    .section-label::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+    .section-title { font-size: clamp(2rem, 4.5vw, 3.25rem); margin-bottom: 20px; max-width: 800px; }
+    .section-title em {
+      font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 100; color: var(--accent);
+    }
+    .section-intro { max-width: 680px; font-size: 1.05rem; margin-bottom: 60px; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      max-width: var(--container); margin: 0 auto; padding: 18px 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .logo {
+      font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; font-weight: 500;
+      font-variation-settings: "opsz" 144, "SOFT" 80; letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 6px; list-style: none; padding: 0; margin: 0; }
+    .nav-links a {
+      font-size: 0.9rem; padding: 8px 14px; border-radius: 999px;
+      color: var(--text-muted); transition: all var(--transition);
+    }
+    .nav-links a:hover { color: var(--text); background: var(--bg-soft); }
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+    .theme-switcher {
+      display: flex; gap: 8px; padding: 6px;
+      background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px;
+    }
+    .theme-btn {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2px solid transparent; cursor: pointer;
+      transition: all var(--transition); padding: 0;
+    }
+    .theme-btn.dark { background: #0e0e10; }
+    .theme-btn.light { background: #f6f3ee; border-color: #dcd6c9; }
+    .theme-btn.sepia { background: linear-gradient(135deg, #2a1f17, #7fb069); }
+    .theme-btn[aria-pressed="true"] { border-color: var(--accent); transform: scale(1.15); }
+    .mobile-toggle {
+      display: none; background: none; border: 1px solid var(--border);
+      color: var(--text); padding: 8px 14px; border-radius: 999px;
+      cursor: pointer; font-size: 0.85rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 120px; padding-bottom: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; top: 20%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: center; }
+
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 999px;
+      font-size: 0.82rem; color: var(--accent); margin-bottom: 32px; font-weight: 500;
+    }
+    .hero-kicker .dot {
+      width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-title { font-size: clamp(2.6rem, 6.2vw, 4.8rem); margin-bottom: 28px; }
+    .hero-title .line {
+      display: block; opacity: 0; transform: translateY(30px);
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-title .line:nth-child(1) { animation-delay: 0.1s; }
+    .hero-title .line:nth-child(2) { animation-delay: 0.25s; }
+    .hero-title .line:nth-child(3) { animation-delay: 0.4s; }
+    .hero-title em {
+      font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 100; color: var(--accent);
+    }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+    .hero-desc {
+      font-size: 1.1rem; max-width: 580px; margin-bottom: 40px;
+      opacity: 0; animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+    }
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      opacity: 0; animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 26px; border-radius: 999px;
+      font-size: 0.95rem; font-weight: 500;
+      cursor: pointer; border: 1px solid transparent;
+      transition: all var(--transition); font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-contrast); }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px var(--accent);
+      color: var(--accent-contrast);
+    }
+    .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-ghost:hover { border-color: var(--text); background: var(--bg-soft); }
+
+    .hero-card {
+      position: relative; aspect-ratio: 3 / 4;
+      border-radius: var(--radius); background: var(--bg-elevated);
+      border: 1px solid var(--border); overflow: hidden;
+      box-shadow: var(--shadow);
+      opacity: 0; animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+    }
+    .hero-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 25%;
+      filter: saturate(1.05);
+    }
+    .hero-card-tag {
+      position: absolute; left: 16px; bottom: 16px; right: 16px;
+      padding: 14px 18px;
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border); border-radius: 10px;
+      font-size: 0.85rem; z-index: 2;
+    }
+    .hero-card-tag strong { display: block; color: var(--text); margin-bottom: 2px; }
+
+    .hero-stats {
+      margin-top: 80px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+      padding-top: 40px; border-top: 1px solid var(--border);
+      opacity: 0; animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
+    }
+    .stat-num {
+      font-family: "Fraunces", serif; font-size: 2.5rem;
+      font-variation-settings: "opsz" 144, "SOFT" 50;
+      color: var(--text); line-height: 1; margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.82rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.12em;
+    }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .skill-card {
+      padding: 32px; background: var(--bg-soft);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .skill-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .skill-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .skill-card:hover::before { transform: scaleX(1); }
+
+    .skill-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--accent-soft); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 1.4rem;
+    }
+    .skill-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .skill-tag {
+      font-size: 0.78rem; padding: 4px 12px;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 999px; color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .certs {
+      margin-top: 60px; padding: 36px;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .certs h3 {
+      font-size: 1.1rem; margin-bottom: 24px; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      font-family: "Geist", sans-serif; font-weight: 500;
+    }
+    .cert-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px; list-style: none; padding: 0; margin: 0;
+    }
+    .cert-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px; background: var(--bg-elevated);
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .cert-list li:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .cert-badge {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 8px; background: var(--accent-soft); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 0.7rem;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .cert-list strong { display: block; font-size: 0.9rem; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+    .cert-list span { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* TIMELINE */
+    .timeline-tabs {
+      display: inline-flex; gap: 6px; padding: 6px;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 999px; margin-bottom: 48px;
+    }
+    .timeline-tab {
+      padding: 8px 20px; border-radius: 999px; font-size: 0.9rem;
+      cursor: pointer; border: none; background: none;
+      color: var(--text-muted); font-family: inherit;
+      transition: all var(--transition);
+    }
+    .timeline-tab[aria-pressed="true"] { background: var(--accent); color: var(--accent-contrast); }
+
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: ""; position: absolute;
+      left: 10px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item { position: relative; padding-bottom: 40px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: ""; position: absolute;
+      left: -35px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
+    }
+    .timeline-date {
+      font-size: 0.8rem; color: var(--accent);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 6px; font-weight: 500;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .timeline-item h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .timeline-org { color: var(--text); font-size: 0.95rem; margin-bottom: 12px; font-weight: 500; }
+    .timeline-org .tagline { color: var(--text-muted); font-weight: 400; font-style: italic; }
+    .timeline-item ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item ul li {
+      position: relative; padding-left: 20px; margin-bottom: 8px;
+      color: var(--text-muted); font-size: 0.95rem;
+    }
+    .timeline-item ul li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+    .timeline-pane { display: none; }
+    .timeline-pane.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .service-card {
+      padding: 40px 32px; background: var(--bg-soft);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      position: relative; overflow: hidden;
+      transition: all var(--transition);
+    }
+    .service-card:hover {
+      background: var(--bg-elevated); transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .service-number {
+      font-family: "Fraunces", serif; font-style: italic;
+      font-size: 3rem; font-variation-settings: "opsz" 144, "SOFT" 100;
+      color: var(--accent); opacity: 0.85; line-height: 1; margin-bottom: 20px;
+    }
+    .service-card h3 { font-size: 1.4rem; margin-bottom: 14px; }
+    .service-card ul {
+      list-style: none; padding: 0; margin: 20px 0 0;
+      font-size: 0.9rem; color: var(--text-muted);
+    }
+    .service-card li { padding: 6px 0; padding-left: 22px; position: relative; }
+    .service-card li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+    .project-card {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: all var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-6px); border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .project-image {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, var(--accent-soft), var(--bg-elevated));
+      position: relative; display: flex;
+      align-items: center; justify-content: center; overflow: hidden;
+    }
+    .project-image::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 60%);
+    }
+    .project-image svg { position: relative; z-index: 1; color: var(--accent); opacity: 0.85; }
+    .project-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .project-tags { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .project-tag {
+      font-size: 0.7rem; padding: 3px 10px;
+      background: var(--accent-soft); color: var(--accent); border-radius: 999px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .project-card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .project-card p { flex: 1; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-info p { font-size: 1.05rem; max-width: 460px; }
+    .contact-channels { list-style: none; padding: 0; margin: 32px 0 0; }
+    .contact-channels li {
+      padding: 20px 0; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .contact-channels li:last-child { border-bottom: 1px solid var(--border); }
+    .contact-channels .label {
+      font-size: 0.78rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.14em;
+    }
+    .contact-channels a, .contact-channels span.value {
+      font-family: "Fraunces", serif; font-size: 1.15rem;
+      font-variation-settings: "opsz" 144, "SOFT" 70;
+      color: var(--text); text-align: right;
+    }
+    .contact-form {
+      padding: 40px; background: var(--bg-soft);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .form-field { margin-bottom: 20px; }
+    .form-field label {
+      display: block; font-size: 0.82rem; margin-bottom: 8px;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .form-field input, .form-field textarea {
+      width: 100%; padding: 12px 16px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: inherit; font-size: 0.95rem;
+      transition: border-color var(--transition);
+    }
+    .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--accent); }
+    .form-field textarea { min-height: 120px; resize: vertical; }
+
+    /* FOOTER */
+    footer { padding: 50px 0 40px; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+    footer .socials { display: flex; gap: 20px; justify-content: center; margin-bottom: 24px; }
+    footer .socials a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    footer .socials a:hover {
+      background: var(--accent); color: var(--accent-contrast);
+      border-color: var(--accent); transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+      .hero-card { max-width: 320px; margin: 0 auto; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      section { padding: 70px 0; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: inline-block; }
+      .nav-links.open {
+        display: flex; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--bg);
+        border-bottom: 1px solid var(--border); padding: 20px; gap: 4px;
+      }
+      .contact-channels li { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .contact-channels a, .contact-channels span.value { text-align: left; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo">Faisal<span>.</span>Basha</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#qualifications">Qualifications</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="theme-switcher" role="group" aria-label="Select theme">
+          <button class="theme-btn dark" data-theme-set="dark" aria-label="Dark theme" aria-pressed="true"></button>
+          <button class="theme-btn light" data-theme-set="light" aria-label="Light theme" aria-pressed="false"></button>
+          <button class="theme-btn sepia" data-theme-set="sepia" aria-label="Sepia theme" aria-pressed="false"></button>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">Menu</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span class="dot"></span>
+            Open to senior platform &amp; SRE roles
+          </div>
+
+          <h1 class="hero-title">
+            <span class="line">I'm <em>Faisal Bin Basha</em>,</span>
+            <span class="line">AI Platform &amp; DevOps</span>
+            <span class="line">engineer in Sharjah.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Principal-level DevOps and AI Infrastructure Engineer designing, scaling, and securing
+            mission-critical distributed systems across cloud and on-prem environments. I build
+            resilient platforms on Kubernetes and AWS EKS, with deep expertise in observability,
+            CI/CD automation, and DevSecOps.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">
+              View my work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="resume.pdf" download class="btn btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="profile.jpg" alt="Faisal Bin Basha" />
+          <div class="hero-card-tag">
+            <strong>Faisal Bin Basha</strong>
+            <span>AI Platform Engineer · Sharjah, UAE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div><div class="stat-num">16+</div><div class="stat-label">Years in Tech</div></div>
+        <div><div class="stat-num">18</div><div class="stat-label">Certifications</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Companies</div></div>
+        <div><div class="stat-num">4</div><div class="stat-label">Cloud Platforms</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Skills &amp; Certifications</div>
+        <h2 class="section-title">The toolkit behind <em>resilient platforms</em></h2>
+        <p class="section-intro">
+          A deep technical stack assembled across 16+ years — spanning cloud architecture, container
+          orchestration, observability, automation, security, and machine learning infrastructure.
+        </p>
+      </div>
+
+      <div class="skills-grid reveal">
+        <div class="skill-card">
+          <div class="skill-icon">☁</div>
+          <h3>Cloud &amp; Infrastructure</h3>
+          <p>Designing scalable, resilient, cost-efficient cloud architectures across hyperscalers and on-prem.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS EKS</span>
+            <span class="skill-tag">AWS RDS</span>
+            <span class="skill-tag">AWS S3</span>
+            <span class="skill-tag">AWS Lambda</span>
+            <span class="skill-tag">Azure AKS</span>
+            <span class="skill-tag">Oracle Cloud</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">VMware</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙</div>
+          <h3>DevOps &amp; CI/CD</h3>
+          <p>Automation-first pipelines that make deployments rapid, reliable, and repeatable.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">JFrog Artifactory</span>
+            <span class="skill-tag">SonarQube</span>
+            <span class="skill-tag">GitLab</span>
+            <span class="skill-tag">BitBucket</span>
+            <span class="skill-tag">Groovy</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h3>Observability &amp; Data</h3>
+          <p>Real-time visibility into distributed systems — metrics, logs, and databases at scale.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">cAdvisor</span>
+            <span class="skill-tag">Elasticsearch</span>
+            <span class="skill-tag">Logstash</span>
+            <span class="skill-tag">Kibana</span>
+            <span class="skill-tag">MySQL 8.2 Cluster</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <h3>AI / ML &amp; Languages</h3>
+          <p>Building the infrastructure that powers next-generation AI/ML workloads.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Kubeflow</span>
+            <span class="skill-tag">DVC</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🔒</div>
+          <h3>DevSecOps &amp; Security</h3>
+          <p>Secure-by-design principles applied across the full platform lifecycle.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Aqua Security</span>
+            <span class="skill-tag">AWS Cert Manager</span>
+            <span class="skill-tag">SSL/TLS</span>
+            <span class="skill-tag">CyberArk PAM</span>
+            <span class="skill-tag">Vulnerability Scanning</span>
+            <span class="skill-tag">CEH</span>
+            <span class="skill-tag">eJPT</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">💬</div>
+          <h3>Leadership &amp; Languages</h3>
+          <p>Leading complex incident response, mentoring teams, and communicating across cultures.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">English</span>
+            <span class="skill-tag">Arabic</span>
+            <span class="skill-tag">Hindi</span>
+            <span class="skill-tag">Tamil</span>
+            <span class="skill-tag">Malayalam</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certs reveal">
+        <h3>Certifications &amp; Credentials</h3>
+        <ul class="cert-list">
+          <li><div class="cert-badge">AWS</div><div><strong>Certified Security Specialty</strong><span>AWS · 2025</span></div></li>
+          <li><div class="cert-badge">AWS</div><div><strong>Certified Machine Learning Specialty</strong><span>AWS · 2024</span></div></li>
+          <li><div class="cert-badge">AWS</div><div><strong>Certified Solution Architect Associate</strong><span>AWS · 2020</span></div></li>
+          <li><div class="cert-badge">AWS</div><div><strong>Certified Cloud Practitioner</strong><span>AWS</span></div></li>
+          <li><div class="cert-badge">AZ</div><div><strong>Azure 400 DevOps Certified</strong><span>Microsoft · 2021</span></div></li>
+          <li><div class="cert-badge">AZ</div><div><strong>Azure Solution Architect Professional</strong><span>Microsoft · 2021</span></div></li>
+          <li><div class="cert-badge">OCI</div><div><strong>OCI Observability Professional</strong><span>Oracle · 2025</span></div></li>
+          <li><div class="cert-badge">OCI</div><div><strong>OCI Data Science Professional</strong><span>Oracle · 2025</span></div></li>
+          <li><div class="cert-badge">OCI</div><div><strong>OCI Generative AI Professional</strong><span>Oracle · 2024</span></div></li>
+          <li><div class="cert-badge">OCI</div><div><strong>OCI AI Foundations</strong><span>Oracle · 2025</span></div></li>
+          <li><div class="cert-badge">OCI</div><div><strong>OCI Foundations Associate</strong><span>Oracle · 2025</span></div></li>
+          <li><div class="cert-badge">K8s</div><div><strong>Certified Kubernetes Administrator</strong><span>Linux Foundation CNCF</span></div></li>
+          <li><div class="cert-badge">LF</div><div><strong>Linux Foundation Certified SysAdmin</strong><span>LFCS · 2024</span></div></li>
+          <li><div class="cert-badge">DL</div><div><strong>Deep Learning Specialization</strong><span>Coursera · Andrew Ng</span></div></li>
+          <li><div class="cert-badge">DS</div><div><strong>Data Science Specialization</strong><span>Johns Hopkins · Coursera</span></div></li>
+          <li><div class="cert-badge">EC</div><div><strong>Certified Ethical Hacker</strong><span>EC-Council</span></div></li>
+          <li><div class="cert-badge">INE</div><div><strong>eJPT Penetration Tester</strong><span>INE</span></div></li>
+          <li><div class="cert-badge">SFC</div><div><strong>Scrum Fundamentals Certified</strong><span>SCRUM</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="qualifications">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Qualifications</div>
+        <h2 class="section-title">The <em>journey</em> so far</h2>
+        <p class="section-intro">
+          16+ years across cloud architecture, DevOps, SRE and AI infrastructure — layered on top of
+          graduate study in Computer Science, Artificial Intelligence and Cyber Law.
+        </p>
+
+        <div class="timeline-tabs" role="group" aria-label="Timeline category">
+          <button class="timeline-tab" data-tab="experience" aria-pressed="true">Experience</button>
+          <button class="timeline-tab" data-tab="education" aria-pressed="false">Education</button>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="timeline-pane active" id="pane-experience">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2021 — Present · Dubai, UAE</div>
+              <h3>AI Platform Engineer / Senior SRE &amp; DevOps &amp; DevSecOps</h3>
+              <div class="timeline-org">ANUVU <span class="tagline">— connectivity &amp; entertainment for aviation &amp; maritime</span></div>
+              <ul>
+                <li>Architected containerized infrastructure across AWS EKS and on-prem Kubernetes clusters for mission-critical workloads.</li>
+                <li>Engineered observability with Prometheus, Grafana and cAdvisor; defined SLIs/SLOs and cut incident response time.</li>
+                <li>Operated ELK logging pipelines, resolving indexing pressure (HTTP 429), circuit breaker exceptions and shard allocation failures.</li>
+                <li>Administered MySQL 8.2 clustered environments with Group Replication — fixed replication conflicts and storage bottlenecks.</li>
+                <li>Built Jenkins CI/CD pipelines and scheduled automation for health checks, log rotation and disk management.</li>
+                <li>Hardened platform security via AWS Certificate Manager, Aqua Security container scanning and SSL/TLS lifecycle management.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">05/2021 — 05/2022 · Dubai, UAE</div>
+              <h3>Senior DevOps Engineer</h3>
+              <div class="timeline-org">Saab <span class="tagline">— healthcare innovation</span></div>
+              <ul>
+                <li>Deployed Snipe-IT with Docker-Compose and automated SSL certificate deployment via NGINX + Ansible.</li>
+                <li>Configured Jenkins with Artifactory, SonarQube and Docker plugins for multi-language CI/CD (Python, C/C++, NodeJS, Vue).</li>
+                <li>Integrated GitLab/BitBucket with LDAP across Jenkins, Jira and Confluence for unified authentication.</li>
+                <li>Managed binary artifacts in JFrog Artifactory; authored pipeline scripts, shell scripts, Dockerfiles and Ansible playbooks.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">07/2020 — 05/2021</div>
+              <h3>Senior DevOps &amp; Cloud Engineer</h3>
+              <div class="timeline-org">OSN <span class="tagline">— Middle East &amp; North Africa satellite TV</span></div>
+              <ul>
+                <li>Boosted data mining and automation by 45% with a scalable classifier integrating supervised and unsupervised learning.</li>
+                <li>Deployed to cloud meeting 100% of deadlines under strict security standards.</li>
+                <li>Provisioned multiple on-prem Kubernetes clusters via Kubeadm on Ubuntu 20.04.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">04/2018 — 06/2020 · Dubai, UAE</div>
+              <h3>Azure Cloud Solution Architect</h3>
+              <div class="timeline-org">Este <span class="tagline">— web, mobile &amp; ML applications</span></div>
+              <ul>
+                <li>Installed and configured Jenkins on AKS with internal Azure load balancing and SCM-triggered pipelines.</li>
+                <li>Managed Azure Active Directory access, backup policies, and Linux administration on CentOS/RHEL.</li>
+                <li>Built an ML recommendation engine using purchase history and browsing behavior to drive product visibility.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">03/2016 — 03/2018 · Dubai, UAE</div>
+              <h3>Meteorological Reporting System</h3>
+              <div class="timeline-org">Sharjah International Airport</div>
+              <ul>
+                <li>Established GIT branching/naming conventions and developed Groovy scripts integrating SCM with Chef.</li>
+                <li>Automated CI/CD in Jenkins using Docker, Python, Groovy, PowerShell and Unreal Engine build systems.</li>
+                <li>Performed OS installations, upgrades and server patching on RHEL 5.x–7.x using PXE, DHCP, Kickstart and Jumpstart.</li>
+                <li>Built AWS CloudFormation templates for custom-sized VPCs, subnets and NAT; Python integrations with AWS APIs.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">07/2014 — 02/2016 · Dubai, UAE</div>
+              <h3>Web / Mobile Application Developer</h3>
+              <div class="timeline-org">N M Informatics <span class="tagline">— web &amp; mobile app startup</span></div>
+              <ul>
+                <li>Enhanced delivery speed by 20% through integrating 5 new technical tools.</li>
+                <li>Automated iOS application archiving and App Store deployment using fastlane.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">06/2013 — 06/2014 · Chennai, India</div>
+              <h3>Instructor — iOS / Android</h3>
+              <div class="timeline-org">VELS University</div>
+              <ul>
+                <li>Taught iOS / Objective-C to master's students — syntax, semantics, memory management.</li>
+                <li>Covered UI, Core Data, Protocols, Delegates and method swizzling.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">03/2009 — 12/2012 · Chennai, India</div>
+              <h3>iOS Game Developer</h3>
+              <div class="timeline-org">TrueTech Solutions</div>
+              <ul>
+                <li>Built automated unit tests using open-source frameworks and TDD.</li>
+                <li>Worked with AWS CloudFormation, VPCs, subnets, NAT and Python + Amazon API integrations.</li>
+                <li>Created Jenkins jobs to build AWS infrastructure from GitHub repos containing Ansible playbooks.</li>
+                <li>Installed and configured DHCP, DNS (BIND), web (Apache/IIS), mail and file servers on Linux.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-pane" id="pane-education">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">09/2025 · Atlanta, USA</div>
+              <h3>MS in Computer Science</h3>
+              <div class="timeline-org">Georgia Institute of Technology</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">01/2023 — 06/2024 · London, UK</div>
+              <h3>MSc in Artificial Intelligence</h3>
+              <div class="timeline-org">University of West London</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2021 — 2022 · Bangalore, India</div>
+              <h3>Post Graduate Degree in Cyber Law &amp; Forensic Law</h3>
+              <div class="timeline-org">National Law School of India University</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2010 — 2014 · Chennai, India</div>
+              <h3>Bachelor of Computer Application</h3>
+              <div class="timeline-org">University of Madras</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1994 — 2000 · Dubai, UAE</div>
+              <h3>High School</h3>
+              <div class="timeline-org">Our Own English High School <span class="tagline">— 80% aggregate · Maths &amp; Physics Olympiad distinctions</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">How I can <em>help</em></h2>
+        <p class="section-intro">
+          From greenfield platform design to hardening what you already run in production — here are
+          the engagements I take on.
+        </p>
+      </div>
+
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3>Cloud &amp; Platform Architecture</h3>
+          <p>Multi-cluster Kubernetes on AWS EKS, Azure AKS, OCI or on-prem. Designed for availability, resilience and cost efficiency.</p>
+          <ul>
+            <li>EKS / AKS cluster design</li>
+            <li>Hybrid &amp; on-prem Kubernetes</li>
+            <li>VPC, networking &amp; IAM</li>
+            <li>Capacity planning &amp; cost review</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3>Site Reliability &amp; Observability</h3>
+          <p>End-to-end telemetry stacks that surface the right signal — alerting that respects SLIs/SLOs instead of paging on noise.</p>
+          <ul>
+            <li>Prometheus, Grafana, cAdvisor</li>
+            <li>ELK / OpenSearch logging</li>
+            <li>Alertmanager &amp; SLO design</li>
+            <li>Incident response &amp; RCA</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3>CI/CD &amp; Automation</h3>
+          <p>Jenkins pipelines, Ansible playbooks and infrastructure-as-code that make shipping and recovery boring in the best way.</p>
+          <ul>
+            <li>Jenkins pipeline engineering</li>
+            <li>Ansible configuration management</li>
+            <li>Docker &amp; container registries</li>
+            <li>Release &amp; rollback automation</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-number">04</div>
+          <h3>DevSecOps &amp; Hardening</h3>
+          <p>Security as a first-class citizen — SSL/TLS lifecycle, container scanning, secrets management and continuous vulnerability posture.</p>
+          <ul>
+            <li>Aqua Security &amp; image scanning</li>
+            <li>AWS Certificate Manager</li>
+            <li>CyberArk PAM</li>
+            <li>Penetration testing (eJPT, CEH)</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-number">05</div>
+          <h3>AI / ML Platform Engineering</h3>
+          <p>Scalable, secure infrastructure for AI/ML workloads — from training pipelines to model serving and data versioning.</p>
+          <ul>
+            <li>Kubeflow on EKS/AKS</li>
+            <li>DVC data versioning</li>
+            <li>GPU scheduling &amp; autoscaling</li>
+            <li>Recommendation engines</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-number">06</div>
+          <h3>Database Reliability</h3>
+          <p>High-throughput MySQL with Group Replication — tuning, replication health and recovery from transaction storms.</p>
+          <ul>
+            <li>MySQL 8.x clustered environments</li>
+            <li>Replication conflict resolution</li>
+            <li>AWS RDS design &amp; operation</li>
+            <li>Performance tuning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Career Highlights</div>
+        <h2 class="section-title">Work I'm <em>proud of</em></h2>
+        <p class="section-intro">
+          A selection of the most impactful platforms and systems I've built, scaled and hardened.
+        </p>
+      </div>
+
+      <div class="projects-grid reveal">
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Kubernetes</span>
+              <span class="project-tag">AWS EKS</span>
+              <span class="project-tag">ANUVU</span>
+            </div>
+            <h3>Multi-Cluster Kubernetes Platform</h3>
+            <p>Architected and ran containerized infrastructure across AWS EKS and on-prem clusters for mission-critical connectivity systems in aviation and maritime — the platform inflight Wi-Fi and IFE ride on.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3v18h18"/><path d="M7 14l3-3 4 4 5-6"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Prometheus</span>
+              <span class="project-tag">Grafana</span>
+              <span class="project-tag">ELK</span>
+            </div>
+            <h3>End-to-End Observability Stack</h3>
+            <p>Designed and operationalised a full observability platform — Prometheus for metrics, Grafana for dashboards, cAdvisor for container telemetry, ELK for logs. Alerting that mapped to real user impact, not noise.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">MySQL 8.2</span>
+              <span class="project-tag">Group Replication</span>
+              <span class="project-tag">HA</span>
+            </div>
+            <h3>MySQL 8.2 Clustered Environment</h3>
+            <p>Administered a production MySQL 8.2 cluster with Group Replication. Resolved replication conflicts, rolled-back transactions and storage bottlenecks while keeping write throughput high and consistency intact.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Jenkins</span>
+              <span class="project-tag">Ansible</span>
+              <span class="project-tag">CI/CD</span>
+            </div>
+            <h3>Jenkins CI/CD Pipeline Ecosystem</h3>
+            <p>End-to-end Jenkins pipelines with Artifactory, SonarQube and Docker integrations across Python, C/C++, NodeJS and Vue codebases. Scheduled automation for health checks, log rotation and disk management. Ansible at the config layer.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">DevSecOps</span>
+              <span class="project-tag">Aqua Security</span>
+              <span class="project-tag">SSL/TLS</span>
+            </div>
+            <h3>DevSecOps Hardening Programme</h3>
+            <p>Rolled out secure-by-design principles across the platform — SSL/TLS lifecycle via AWS Certificate Manager, container vulnerability scanning with Aqua Security, and NGINX-delivered certificate automation through Ansible.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Machine Learning</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Azure</span>
+            </div>
+            <h3>ML Recommendation Engine</h3>
+            <p>Built a recommendation engine that drove product visibility using purchase history, cart activity, brand preference and browsing behaviour — on-site suggestions and email campaigns. Boosted data mining and automation by 45%.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's build <em>something reliable</em> together</h2>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <p>
+            Open to Senior SRE, Platform Engineering, DevOps/DevSecOps leadership and AI Infrastructure
+            roles — remote, hybrid, or on-site in the UAE. Also available for consulting engagements.
+            I typically reply within 24 hours.
+          </p>
+          <ul class="contact-channels">
+            <li>
+              <span class="label">Email</span>
+              <a href="mailto:faisalbasha.andd@gmail.com">faisalbasha.andd@gmail.com</a>
+            </li>
+            <li>
+              <span class="label">Phone</span>
+              <a href="tel:+971561905649">+971 56 190 5649</a>
+            </li>
+            <li>
+              <span class="label">GitHub</span>
+              <a href="https://github.com/faisalbasha1982" target="_blank" rel="noopener">faisalbasha1982</a>
+            </li>
+            <li>
+              <span class="label">Location</span>
+              <span class="value">Sharjah, UAE</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Uses Formspree. Sign up at formspree.io (free tier), create a form, and replace YOUR_FORM_ID below. -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me about the role or project…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="socials">
+        <a href="https://github.com/faisalbasha1982" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.83-.26.83-.58v-2.17c-3.34.73-4.03-1.41-4.03-1.41-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23.96-.27 2-.4 3-.4s2.04.13 3 .4c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="mailto:faisalbasha.andd@gmail.com" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="tel:+971561905649" aria-label="Phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+      <p>© <span id="year"></span> Faisal Bin Basha. Designed &amp; built with care in Sharjah.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved) html.setAttribute('data-theme', saved);
+      const buttons = document.querySelectorAll('.theme-btn');
+      function syncButtons() {
+        const current = html.getAttribute('data-theme');
+        buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.themeSet === current ? 'true' : 'false'));
+      }
+      syncButtons();
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.dataset.themeSet;
+          html.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          syncButtons();
+        });
+      });
+    })();
+
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    document.querySelectorAll('.timeline-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.timeline-tab').forEach(t =>
+          t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'));
+        document.querySelectorAll('.timeline-pane').forEach(p =>
+          p.classList.toggle('active', p.id === 'pane-' + target));
+      });
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
