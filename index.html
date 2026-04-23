@@ -337,13 +337,12 @@
     }
     [data-theme="light"] .cert-badge { background: #1a1a1a; }
     [data-theme="sepia"] .cert-badge { background: #f2e4d0; }
+
     .cert-badge img {
       width: 100%; height: 100%; object-fit: contain;
-      filter: invert(1) brightness(0); /* makes monochrome SVGs render black on white badge */
+      filter: brightness(0); /* default: black icon on white/cream badge */
     }
-    [data-theme="light"] .cert-badge img { filter: invert(0) brightness(1); }
-    [data-theme="sepia"] .cert-badge img { filter: invert(1) brightness(0); }
-    .cert-badge img { width: 100%; height: 100%; object-fit: contain; }
+    [data-theme="light"] .cert-badge img { filter: brightness(0) invert(1); /* white icon on dark badge */ }
     .cert-list strong { display: block; font-size: 0.9rem; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
     .cert-list span { font-size: 0.78rem; color: var(--text-muted); }
 
@@ -710,9 +709,17 @@
       </div>
 
       <div class="certs reveal">
-        <h3>Verified Certifications</h3>
+        <h3>Certifications & Credentials</h3>
         <ul class="cert-list">
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazon.svg" alt="AWS" referrerpolicy="no-referrer"></div><div><strong>Certified Security – Specialty</strong><span>AWS · 2025</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazon.svg" alt="AWS" referrerpolicy="no-referrer"></div><div><strong>Certified Machine Learning – Specialty</strong><span>AWS · 2024</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazon.svg" alt="AWS" referrerpolicy="no-referrer"></div><div><strong>Certified Solutions Architect – Associate</strong><span>AWS · 2020</span></div></li>
           <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazon.svg" alt="AWS" referrerpolicy="no-referrer"></div><div><strong>Certified Cloud Practitioner</strong><span>AWS</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg" alt="Azure" referrerpolicy="no-referrer"></div><div><strong>Azure 400 DevOps Engineer</strong><span>Microsoft · 2021</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg" alt="Azure" referrerpolicy="no-referrer"></div><div><strong>Azure Solutions Architect Expert</strong><span>Microsoft · 2021</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg" alt="Azure" referrerpolicy="no-referrer"></div><div><strong>Exam 535: Architecting Azure Solutions</strong><span>Microsoft · 2018</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/kubernetes.svg" alt="Kubernetes" referrerpolicy="no-referrer"></div><div><strong>Certified Kubernetes Administrator</strong><span>CNCF · Linux Foundation</span></div></li>
+          <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg" alt="Linux" referrerpolicy="no-referrer"></div><div><strong>Linux Foundation Certified SysAdmin</strong><span>LFCS · 2024</span></div></li>
           <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" alt="Oracle" referrerpolicy="no-referrer"></div><div><strong>OCI Observability Professional</strong><span>Oracle · 2025</span></div></li>
           <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" alt="Oracle" referrerpolicy="no-referrer"></div><div><strong>OCI Data Science Professional</strong><span>Oracle · 2025</span></div></li>
           <li><div class="cert-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" alt="Oracle" referrerpolicy="no-referrer"></div><div><strong>OCI Generative AI Professional</strong><span>Oracle · 2024</span></div></li>
