@@ -1,0 +1,10 @@
+name = "faisal-ai-assistant"
+main = "worker.js"
+compatibility_date = "2025-05-01"
+
+# After deploy you'll get a URL like:
+#   https://faisal-ai-assistant.<your-subdomain>.workers.dev
+# Paste that into ENDPOINT in chat-widget.js.
+
+# Set the API key as a secret (do NOT put it in this file):
+#   wrangler secret put ANTHROPIC_API_KEY
