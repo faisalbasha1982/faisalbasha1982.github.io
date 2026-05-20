@@ -455,6 +455,88 @@
     .project-card h3 { font-size: 1.35rem; margin-bottom: 10px; }
     .project-card p { flex: 1; }
 
+    /* BOOK FEATURE */
+    .book-feature {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 20px;
+    }
+    @media (max-width: 860px) {
+      .book-feature { grid-template-columns: 1fr; gap: 48px; }
+      .book-cover-wrap { justify-self: center; max-width: 280px; width: 100%; }
+    }
+
+    .book-cover-wrap { justify-self: start; width: 100%; max-width: 320px; }
+    .book-cover-link {
+      display: block;
+      width: 100%;
+      aspect-ratio: 2/3;
+    }
+    .book-cover-shell {
+      width: 100%;
+      height: 100%;
+      background: #FFFFFF;
+      border-radius: 2px 4px 4px 2px;
+      box-shadow:
+        -3px 0 0 #efeae1,
+        -4px 0 0 rgba(0,0,0,0.1),
+        -10px 0 22px rgba(0,0,0,0.25),
+        0 30px 60px -10px rgba(0,0,0,0.5);
+      transform: perspective(1400px) rotateY(-7deg);
+      transition: transform var(--transition);
+    }
+    .book-cover-link:hover .book-cover-shell { transform: perspective(1400px) rotateY(0); }
+    .book-cover-shell svg { display: block; width: 100%; height: 100%; border-radius: inherit; }
+
+    .book-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 32px;
+    }
+    .book-meta-item { position: relative; padding-right: 20px; }
+    .book-meta-item:not(:last-child)::after {
+      content: "·"; position: absolute; right: 0; color: var(--accent);
+    }
+
+    .book-quote {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 100;
+      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+      line-height: 1.4;
+      color: var(--text);
+      margin: 0 0 36px;
+      padding: 8px 0 8px 22px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .book-toc {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+    }
+    @media (max-width: 600px) { .book-toc { grid-template-columns: 1fr; } }
+    .book-toc li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .book-toc li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+
+    .book-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
     /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .contact-info p { font-size: 1.05rem; max-width: 460px; }
@@ -539,6 +621,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#qualifications">Education</a></li>
+        <li><a href="#book">Book</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -860,6 +943,114 @@
             <li>AWS RDS design &amp; operation</li>
             <li>Performance tuning</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Latest Publication</div>
+        <h2 class="section-title">A new book on <em>machine learning</em></h2>
+        <p class="section-intro">
+          My first book — <strong>Machine Learning with Statistics</strong> — is a quantitative
+          guide for engineers who want to understand the probability and inference machinery
+          underneath every model they ship. No black boxes, no hand-waving. Available on Amazon
+          in Kindle, paperback, and hardcover.
+        </p>
+      </div>
+
+      <div class="book-feature reveal">
+        <!-- COVER -->
+        <div class="book-cover-wrap">
+          <a href="machine-learning-with-statistics.html" class="book-cover-link" aria-label="Open the Machine Learning with Statistics book page">
+            <div class="book-cover-shell">
+              <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.06" font-family="Georgia, serif" font-style="italic" fill="#1a1a1a">
+                  <text x="20" y="50" font-size="13">P(A|B) = P(B|A)·P(A)/P(B)</text>
+                  <text x="240" y="290" font-size="12">σ² = E[(X−μ)²]</text>
+                  <text x="20" y="500" font-size="12">L(θ) = ∏P(xᵢ|θ)</text>
+                </g>
+                <line x1="80" y1="95" x2="160" y2="95" stroke="#1a1a1a" stroke-width="0.7"/>
+                <text x="200" y="99" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="10" letter-spacing="3" fill="#444441" font-weight="500">VOLUME I</text>
+                <line x1="240" y1="95" x2="320" y2="95" stroke="#1a1a1a" stroke-width="0.7"/>
+                <text x="200" y="155" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="38" font-weight="500" letter-spacing="-0.5" fill="#1a1a1a">MACHINE</text>
+                <text x="200" y="200" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="38" font-weight="500" letter-spacing="-0.5" fill="#1a1a1a">LEARNING</text>
+                <text x="200" y="237" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#5F5E5A">with</text>
+                <text x="200" y="285" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="36" font-weight="500" letter-spacing="2.5" fill="#185FA5">STATISTICS</text>
+                <line x1="130" y1="305" x2="270" y2="305" stroke="#185FA5" stroke-width="1.5"/>
+                <g transform="rotate(-14 95 410)">
+                  <rect x="70" y="385" width="50" height="50" rx="7" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
+                  <circle cx="81" cy="396" r="3" fill="#1a1a1a"/>
+                  <circle cx="109" cy="396" r="3" fill="#1a1a1a"/>
+                  <circle cx="95" cy="410" r="3" fill="#1a1a1a"/>
+                  <circle cx="81" cy="424" r="3" fill="#1a1a1a"/>
+                  <circle cx="109" cy="424" r="3" fill="#1a1a1a"/>
+                </g>
+                <g>
+                  <polygon points="247.6,372.5 200,400 200,455 247.6,427.5" fill="#378ADD" stroke="#0C447C" stroke-width="1.5"/>
+                  <line x1="247.6" y1="390.83" x2="200" y2="418.33" stroke="#0C447C" stroke-width="0.8"/>
+                  <line x1="247.6" y1="409.17" x2="200" y2="436.67" stroke="#0C447C" stroke-width="0.8"/>
+                  <line x1="231.73" y1="381.67" x2="231.73" y2="436.67" stroke="#0C447C" stroke-width="0.8"/>
+                  <line x1="215.87" y1="390.83" x2="215.87" y2="445.83" stroke="#0C447C" stroke-width="0.8"/>
+                  <polygon points="152.4,372.5 200,400 200,455 152.4,427.5" fill="#E24B4A" stroke="#791F1F" stroke-width="1.5"/>
+                  <line x1="152.4" y1="390.83" x2="200" y2="418.33" stroke="#791F1F" stroke-width="0.8"/>
+                  <line x1="152.4" y1="409.17" x2="200" y2="436.67" stroke="#791F1F" stroke-width="0.8"/>
+                  <line x1="168.27" y1="381.67" x2="168.27" y2="436.67" stroke="#791F1F" stroke-width="0.8"/>
+                  <line x1="184.13" y1="390.83" x2="184.13" y2="445.83" stroke="#791F1F" stroke-width="0.8"/>
+                  <polygon points="200,345 247.6,372.5 200,400 152.4,372.5" fill="#FAC775" stroke="#633806" stroke-width="1.5"/>
+                  <line x1="184.13" y1="354.17" x2="231.73" y2="381.67" stroke="#633806" stroke-width="0.8"/>
+                  <line x1="168.27" y1="363.33" x2="215.87" y2="390.83" stroke="#633806" stroke-width="0.8"/>
+                  <line x1="215.87" y1="354.17" x2="168.27" y2="381.67" stroke="#633806" stroke-width="0.8"/>
+                  <line x1="231.73" y1="363.33" x2="184.13" y2="390.83" stroke="#633806" stroke-width="0.8"/>
+                </g>
+                <g transform="rotate(18 305 415)">
+                  <rect x="282" y="392" width="46" height="46" rx="6" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
+                  <circle cx="291" cy="401" r="2.5" fill="#1a1a1a"/>
+                  <circle cx="305" cy="415" r="2.5" fill="#1a1a1a"/>
+                  <circle cx="319" cy="429" r="2.5" fill="#1a1a1a"/>
+                </g>
+                <line x1="120" y1="525" x2="280" y2="525" stroke="#1a1a1a" stroke-width="0.7"/>
+                <text x="200" y="546" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="11" letter-spacing="2" fill="#5F5E5A">PROBABILITY · INFERENCE · PREDICTION</text>
+                <text x="200" y="572" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="13" font-weight="500" letter-spacing="3" fill="#1a1a1a">FAISAL BIN BASHA</text>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="book-feature-content">
+          <div class="book-meta">
+            <span class="book-meta-item">7 chapters</span>
+            <span class="book-meta-item">105 pages</span>
+            <span class="book-meta-item">Kindle · Paperback · Hardcover</span>
+          </div>
+
+          <blockquote class="book-quote">
+            Statistics isn't an afterthought in machine learning — it is the foundation.
+          </blockquote>
+
+          <ul class="book-toc">
+            <li>Probability foundations &amp; distributions</li>
+            <li>Statistical inference &amp; hypothesis testing</li>
+            <li>Bayesian reasoning under uncertainty</li>
+            <li>Linear models &amp; their generalisations</li>
+            <li>Bias–variance &amp; model selection</li>
+            <li>Bootstrapping &amp; cross-validation</li>
+            <li>Probabilistic deep learning</li>
+          </ul>
+
+          <div class="book-ctas">
+            <a href="machine-learning-with-statistics.html" class="btn btn-primary">
+              View the book
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="AMAZON_LINK_HERE" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M21 3l-9 9M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              Buy on Kindle
+            </a>
+          </div>
         </div>
       </div>
     </div>
